@@ -1,0 +1,48 @@
+.productContainer {
+  padding-top: 70px;
+  height: 100vh;
+}
+
+.mainPicture {
+  width: 100%;
+  border: 2px black solid;
+  border-radius: 2rem;
+  box-shadow: 4px 4px 6px #979797;
+}
+
+.productDetails {
+  padding: 0px 200px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.productTitle {
+  margin-bottom: 50px;
+}
+
+.insertDetails {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.productDescription {
+  margin-bottom: 50px;
+}
+
+.insertDetails button {
+  background-color: none;
+  border: none;
+  text-decoration: underline;
+  padding: 0 0 20px 0;
+}
+
+.submitButtons button {
+  color: white;
+  background-color: black;
+  font-size: 24px;
+  padding: 5px 10px;
+  margin: 10px;
+  border-radius: 0.7rem;
+}

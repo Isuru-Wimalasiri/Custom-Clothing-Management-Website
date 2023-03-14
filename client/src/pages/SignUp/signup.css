@@ -1,0 +1,40 @@
+.signup {
+  width: 60%;
+  height: 80vh;
+  border: solid 4px;
+  border-radius: 1rem;
+  margin-top: 30px;
+}
+
+.signupImage {
+  padding: 0;
+}
+.signupImage img {
+  height: calc(80vh - 8px);
+  border-top-left-radius: 0.75rem;
+  border-bottom-left-radius: 0.75rem;
+  padding: 0;
+}
+
+.colu {
+  width: 30%;
+}
+
+.colu .m-3 {
+  display: flex;
+  justify-content: center;
+}
+
+.submitBtn {
+  display: flex;
+  width: 100%;
+  padding: 15px 0;
+  margin-top: 15px;
+  background-color: black;
+  justify-content: center;
+}
+
+.formComp {
+  height: 35px;
+  margin-bottom: 10px;
+}
