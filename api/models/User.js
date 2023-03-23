@@ -1,6 +1,14 @@
 import mongoose from 'mongoose';
 
 const userSchema = new mongoose.Schema({
+  firstName: {
+    type: String,
+    required: true,
+  },
+  lastName: {
+    type: String,
+    required: true,
+  },
   email: {
     type: String,
     required: true,
@@ -18,6 +26,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: false,
   },
+  gender: {
+    type: String,
+    required: true,
+  },
   sizes: [
     {
       measurementName: {
@@ -28,6 +40,10 @@ const userSchema = new mongoose.Schema({
       },
     },
   ],
+  isAdmin: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 export default mongoose.model('User', userSchema);

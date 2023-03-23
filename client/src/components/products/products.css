@@ -1,0 +1,10 @@
+.productsContainer > div {
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.titleProducts {
+  margin: 20px;
+}

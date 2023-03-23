@@ -1,22 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import 'react-bootstrap';
 import Product from '../../components/productCategory/productCategory';
-import product from '../../data/productsData';
+import { publicRequest } from '../../requestMethods';
 import './home.css';
 function Home() {
-  const mainCategoriesReturn = () => {
-    const components = [];
-    for (let i = 0; i < 4; i++) {
-      components.push(
-        <Product
-          key={product[i].id}
-          category={product[i].category[0]}
-          url={product[i].url}
-        />
-      );
-    }
-    return <div className="mainProducts">{components}</div>;
-  };
+  const [categories, setCategories] = useState([]);
+  useEffect(() => {
+    const getCategories = async () => {
+      try {
+        const res = await publicRequest.get('/categories');
+
+        setCategories(res.data);
+      } catch (err) {}
+    };
+    getCategories();
+  }, []);
 
   return (
     <div>
@@ -25,7 +23,18 @@ function Home() {
       </div>
       <div>
         <h1 className="d-flex justify-content-center mt-5">Our Products</h1>
-        {mainCategoriesReturn()}
+        <div className="mainProducts">
+          {categories.map((cat) => {
+            return (
+              <Product
+                key={cat._id}
+                id={cat._id}
+                category={cat.name}
+                url={'./images/product/backtboy1.jpg'}
+              />
+            );
+          })}
+        </div>
       </div>
     </div>
   );

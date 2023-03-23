@@ -1,0 +1,12 @@
+.login {
+  position: relative;
+  width: 60%;
+  height: 80vh;
+  border: solid 4px;
+  border-radius: 1rem;
+  margin-top: 30px;
+}
+.signinForm {
+  position: absolute;
+  top: 40%;
+}

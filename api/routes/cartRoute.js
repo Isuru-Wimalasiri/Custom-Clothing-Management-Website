@@ -8,7 +8,8 @@ import {
 } from '../controllers/cartController.js';
 
 import { verifyToken, verifyUser, verifyAdmin } from '../utils/verifyToken.js';
-import router from './authRoute.js';
+
+const router = express.Router();
 
 router.get('/', verifyAdmin, getCarts);
 router.get('/:userId', verifyUser, getCart);

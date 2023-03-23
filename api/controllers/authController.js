@@ -9,9 +9,13 @@ export const register = async (req, res, next) => {
     const hash = bcrypt.hashSync(req.body.password, salt);
 
     const newUser = new User({
-      username: req.body.username,
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
       email: req.body.email,
       password: hash,
+      gender: req.body.gender,
+      primaryAddress: req.body.primaryAddress,
+      contactNumber: req.body.contactNumber,
       isAdmin: req.body.isAdmin,
     });
     await newUser.save();
@@ -23,7 +27,7 @@ export const register = async (req, res, next) => {
 
 export const login = async (req, res, next) => {
   try {
-    const user = await User.findOne({ username: req.body.username });
+    const user = await User.findOne({ email: req.body.email });
 
     if (!user) {
       return next(createError(404, 'User not found'));

@@ -8,6 +8,7 @@ import {
 } from '../controllers/userController.js';
 import { verifyToken, verifyUser, verifyAdmin } from '../utils/verifyToken.js';
 
+const router = express.Router();
 //GET ALL
 router.get('/', verifyAdmin, getUsers);
 //GET

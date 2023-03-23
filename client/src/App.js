@@ -7,6 +7,8 @@ import Footer from './components/footer/footer';
 import Home from './pages/Home/home';
 import Signup from './pages/SignUp/signup';
 import Product from './pages/Product/product';
+import Login from './pages/Login/login';
+import ProductList from './pages/ProductList/productList';
 
 function App() {
   return (
@@ -21,9 +23,11 @@ function App() {
           <Route path="/search" />
           <Route path="/favorite" />
           <Route path="/profile" />
-          <Route path="/login" />
+          <Route path="/login" element={<Login />} />
 
           <Route path="/product" element={<Product />} />
+          <Route path="/productList/:id" element={<ProductList />} />
+          <Route path="/productList" element={<ProductList />} />
           <Route path="/signup" element={<Signup />} />
         </Routes>
         <Footer />

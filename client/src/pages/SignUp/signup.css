@@ -1,6 +1,6 @@
 .signup {
   width: 60%;
-  height: 80vh;
+  height: 85vh;
   border: solid 4px;
   border-radius: 1rem;
   margin-top: 30px;
@@ -10,7 +10,7 @@
   padding: 0;
 }
 .signupImage img {
-  height: calc(80vh - 8px);
+  height: calc(85vh - 8px);
   border-top-left-radius: 0.75rem;
   border-bottom-left-radius: 0.75rem;
   padding: 0;
@@ -28,13 +28,21 @@
 .submitBtn {
   display: flex;
   width: 100%;
-  padding: 15px 0;
+  padding: 10px 0;
   margin-top: 15px;
   background-color: black;
   justify-content: center;
 }
 
 .formComp {
-  height: 35px;
-  margin-bottom: 10px;
+  height: 37px;
+}
+
+.signupErr {
+  display: block;
+  color: crimson;
+  font-size: 10px;
+  margin-bottom: 0px;
+  height: 13px;
+  padding-left: 10px !important;
 }

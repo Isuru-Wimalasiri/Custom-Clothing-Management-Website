@@ -1,0 +1,23 @@
+.filters {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.filterItem {
+  display: flex;
+  flex-direction: row;
+  height: 50px;
+  align-items: center;
+}
+.fiterName {
+  padding-left: 15px;
+}
+
+.sortFilter {
+  width: 200px;
+}
+
+.filtersHeader {
+  margin-top: 50px;
+}

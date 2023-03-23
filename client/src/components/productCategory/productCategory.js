@@ -1,16 +1,24 @@
 import React from 'react';
-import { Container, Col, Row, Button } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 import './productCat.css';
-function Product(props) {
+
+function Product({ category, url, id }) {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate(`/productList/${id}`);
+  };
+
   return (
-    <div className=" card col-sm-2">
-      <div className="cardImage">
-        <img src={props.url} alt="productImage" />
+    <button className="mainCatButton" onClick={handleClick}>
+      <div className=" card col-sm-2">
+        <div className="cardImage">
+          <img src={url} alt="productImage" />
+        </div>
+        <div>
+          <h3 className="cardName">{category.toUpperCase() + 'S'}</h3>
+        </div>
       </div>
-      <div>
-        <h3 className="cardName">{props.category.toUpperCase() + 'S'}</h3>
-      </div>
-    </div>
+    </button>
   );
 }
 

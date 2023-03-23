@@ -1,18 +1,14 @@
-const mongoose = required('mongoose');
+import mongoose from 'mongoose';
 
 const categorySchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
   },
-  measurements: [
-    {
-      measurementName: {
-        type: String,
-        required: true,
-      },
-    },
-  ],
+  image: {
+    type: [String],
+    required: false,
+  },
 });
 
-module.exports('category', categorySchema);
+export default mongoose.model('Category', categorySchema);

@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const productSchema = new mongoose.Schema({
   name: {
@@ -6,7 +6,7 @@ const productSchema = new mongoose.Schema({
     required: true,
   },
   category: {
-    type: Schema.Types.ObjectId,
+    type: mongoose.Schema.ObjectId,
     ref: 'Category',
     required: true,
   },
@@ -14,6 +14,11 @@ const productSchema = new mongoose.Schema({
     type: String,
     required: false,
   },
+  gender: {
+    type: String,
+    required: true,
+  },
+  mesurements: [{ type: String, required: true }],
   description: {
     type: String,
     required: true,
@@ -25,17 +30,17 @@ const productSchema = new mongoose.Schema({
   discount: {
     active: {
       type: Boolean,
-      required: true,
+      required: false,
     },
     percentage: {
       type: Number,
-      required: true,
+      required: false,
     },
   },
   image: {
     type: String,
-    required: true,
+    required: false,
   },
 });
 
-module.exports = mongoose.model('product', productSchema);
+export default mongoose.model('Product', productSchema);
