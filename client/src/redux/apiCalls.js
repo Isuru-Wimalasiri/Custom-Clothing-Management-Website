@@ -1,5 +1,6 @@
 import { publicRequest } from '../requestMethods';
 import { loginFailure, loginStart, loginSuccess } from './userSlice';
+import Cookies from 'js-cookie';
 
 export const login = async (dispatch, user) => {
   dispatch(loginStart());

@@ -5,6 +5,7 @@ import {
   getUser,
   getUsers,
   updateUser,
+  getUsersStat,
 } from '../controllers/userController.js';
 import { verifyToken, verifyUser, verifyAdmin } from '../utils/verifyToken.js';
 
@@ -17,7 +18,7 @@ router.get('/:id', verifyUser, getUser);
 router.put('/:id', verifyUser, updateUser);
 //DELETE
 router.delete('/:id', verifyUser, deleteUser);
-
-//router.get('/stats', isAdminVerifier, UserController.get_stats);
+//STATS
+router.get('/find/stats', verifyAdmin, getUsersStat);
 
 export default router;

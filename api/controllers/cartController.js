@@ -16,7 +16,16 @@ export const getCart = async (req, res, next) => {
     const cart = await Cart.findOne({ userId: req.params.userId });
     res.status(200).json(cart);
   } catch (err) {
-    next(500);
+    next(err);
+  }
+};
+
+export const getCartsByUserID = async (req, res, next) => {
+  try {
+    const cart = await Cart.find({ userId: req.params.userId });
+    res.status(200).json(cart);
+  } catch (err) {
+    next(err);
   }
 };
 

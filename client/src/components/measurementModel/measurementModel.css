@@ -1,0 +1,13 @@
+.typeOfMeasures {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+
+.measureErr {
+  color: crimson;
+  font-size: 10px;
+  padding-left: 5px;
+}

@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.12.4",
+    "@material-ui/data-grid": "^4.0.0-alpha.37",
     "@reduxjs/toolkit": "^1.9.3",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
@@ -11,6 +13,7 @@
     "bootstrap": "^5.2.3",
     "dotenv": "^16.0.3",
     "formik": "^2.2.9",
+    "js-cookie": "^3.0.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.0",
     "react-dom": "^18.2.0",
@@ -20,8 +23,11 @@
     "react-redux": "^8.0.5",
     "react-router-dom": "^6.9.0",
     "react-scripts": "5.0.1",
+    "react-stripe-checkout": "^2.6.3",
+    "recharts": "^2.5.0",
     "redux": "^4.2.1",
     "redux-persist": "^6.0.0",
+    "timeago.js": "^4.0.2",
     "web-vitals": "^2.1.4",
     "yup": "^1.0.2"
   },

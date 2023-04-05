@@ -8,10 +8,20 @@ import { useNavigate } from 'react-router-dom';
 import './login.css';
 import { login } from '../../redux/apiCalls';
 import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { fetchCartData } from '../../redux/cartSlice.js';
 
 const Login = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { isFetching, error, currentUser } = useSelector((state) => state.user);
+
+  useEffect(() => {
+    if (currentUser) {
+      dispatch(fetchCartData(currentUser._id));
+    }
+  });
+
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -23,7 +33,7 @@ const Login = () => {
     }),
     onSubmit: async (values) => {
       login(dispatch, { ...values });
-      console.log(currentUser);
+      navigate('/');
     },
   });
 

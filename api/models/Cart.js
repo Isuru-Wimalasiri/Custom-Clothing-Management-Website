@@ -1,20 +1,31 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const CartSchema = new mongoose.Schema(
   {
     userId: { type: String, required: true },
-    products: [
+
+    productId: {
+      type: mongoose.Schema.ObjectId,
+      ref: 'Product',
+      required: true,
+    },
+    materialId: {
+      type: mongoose.Schema.ObjectId,
+      ref: 'Material',
+      required: true,
+    },
+    sizes: [
       {
-        productId: {
-          type: String,
-        },
-        quantity: {
-          type: Number,
-          default: 1,
-        },
+        name: { type: String, required: true },
+        size: { type: Number, required: true },
       },
     ],
+    quantity: {
+      type: Number,
+      default: 1,
+    },
   },
+
   { timestamps: true }
 );
 

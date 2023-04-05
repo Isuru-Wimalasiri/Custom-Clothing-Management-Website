@@ -33,13 +33,7 @@ const ProductList = () => {
     });
   }, [data, cat]);
 
-  const [filter, setFilter] = useState(
-    {
-      gender: 'all',
-      category: cat || 'all',
-    },
-    [setAllCatName]
-  );
+  const [filter, setFilter] = useState('all');
 
   const getCatIdUsingName = (name) => {
     for (let x of data) {
@@ -76,10 +70,7 @@ const ProductList = () => {
                 options={optionsFilterGender}
                 value={defaultOptionFilterGender}
                 onChange={(e) => {
-                  setFilter({
-                    ...filter,
-                    gender: e.value,
-                  });
+                  setFilter(e.value);
                 }}
                 placeholder="Select an option"
               />
@@ -90,10 +81,7 @@ const ProductList = () => {
               options={optionsFilterCategory}
               value={defaultOptionFilterCategory}
               onChange={(e) => {
-                setFilter({
-                  ...filter,
-                  category: e.value,
-                });
+                setCat(e.value);
                 navigate(`/productList/${getCatIdUsingName(e.value)}`, {
                   replace: true,
                 });
@@ -109,7 +97,9 @@ const ProductList = () => {
                 className="sortFilter"
                 options={optionsSort}
                 value={defaultOptionSort}
-                onChange={(e) => {}}
+                onChange={(e) => {
+                  setSort(e.value);
+                }}
                 placeholder="Select an option"
               />
             </div>

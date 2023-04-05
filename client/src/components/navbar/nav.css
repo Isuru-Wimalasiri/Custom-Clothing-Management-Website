@@ -4,3 +4,18 @@
   justify-content: center;
   text-align: center;
 }
+
+.navComponents {
+  text-decoration: none;
+  color: #6b6b6b;
+}
+
+.navComponents.active {
+  color: black;
+  font-weight: 500;
+}
+
+.navComponents:hover {
+  font-weight: 500;
+  color: #6b6b6b;
+}

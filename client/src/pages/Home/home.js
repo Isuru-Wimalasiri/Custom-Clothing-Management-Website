@@ -3,6 +3,8 @@ import 'react-bootstrap';
 import Product from '../../components/productCategory/productCategory';
 import { publicRequest } from '../../requestMethods';
 import './home.css';
+import Cookies from 'js-cookie';
+import { useSelector } from 'react-redux';
 function Home() {
   const [categories, setCategories] = useState([]);
   useEffect(() => {

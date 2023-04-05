@@ -1,6 +1,5 @@
 .productContainer {
   padding-top: 70px;
-  height: 100vh;
 }
 
 .mainPicture {
@@ -11,13 +10,14 @@
 }
 
 .productDetails {
-  padding: 0px 200px;
+  padding: 0px 100px;
   text-align: center;
   margin-bottom: 20px;
 }
 
 .productTitle {
   margin-bottom: 50px;
+  text-transform: uppercase;
 }
 
 .insertDetails {
@@ -27,15 +27,15 @@
   flex-direction: column;
 }
 
-.productDescription {
-  margin-bottom: 50px;
-}
-
-.insertDetails button {
-  background-color: none;
-  border: none;
-  text-decoration: underline;
-  padding: 0 0 20px 0;
+.insertBtn {
+  width: 325px;
+  display: flex;
+  border: black solid 2px;
+  margin-bottom: 10px;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0px;
+  border-radius: 1rem;
 }
 
 .submitButtons button {
@@ -45,4 +45,40 @@
   padding: 5px 10px;
   margin: 10px;
   border-radius: 0.7rem;
+}
+
+.btn-close {
+  display: none;
+}
+
+.quantityArea {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.quantity {
+  display: flex;
+  padding: 10px;
+  border: #000000 solid 4px;
+  border-radius: 20px;
+  min-width: 50px;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+
+.quantityBtn {
+  background-color: white;
+  border: none;
+  font-size: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.price {
+  color: e0e0e0;
+  padding: 20px;
 }

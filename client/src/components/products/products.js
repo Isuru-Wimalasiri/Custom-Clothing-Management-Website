@@ -23,13 +23,28 @@ const Products = ({ cat, filter, sort }) => {
   }, []);
 
   useEffect(() => {
-    cat &&
+    if (cat === 'all' && filter === 'all') {
+      setFilteredProducts(products);
+    } else if (cat !== 'all' && filter === 'all') {
       setFilteredProducts(
         products.filter((item) => {
           return item.category === cat;
         })
       );
-  }, [products, cat, filteredProducts]);
+    } else if (cat === 'all' && filter !== 'all') {
+      setFilteredProducts(
+        products.filter((item) => {
+          return item.gender === filter;
+        })
+      );
+    } else if (cat !== 'all' && filter !== 'all') {
+      setFilteredProducts(
+        products.filter((item) => {
+          return item.gender === filter && item.category === cat;
+        })
+      );
+    }
+  }, [products, cat, filter]);
 
   useEffect(() => {
     if (sort === 'Date, old to new') {

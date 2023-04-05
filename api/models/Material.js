@@ -6,18 +6,28 @@ const materialSchema = new mongoose.Schema({
     required: true,
     unique: true,
   },
+  image: {
+    type: [String],
+    required: false,
+  },
   description: {
     type: String,
-    required: true,
+    required: false,
   },
   unitPrice: {
-    type: String,
+    type: Number,
+    required: true,
+  },
+  availability: {
+    type: Boolean,
     required: false,
   },
-  availableUnits: {
-    type: String,
-    required: false,
-  },
+  colors: [
+    {
+      name: { type: String, required: true },
+      colorImg: { type: String, required: false },
+    },
+  ],
 });
 
 export default mongoose.model('Material', materialSchema);
