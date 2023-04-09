@@ -5,10 +5,7 @@ import './topbar.css';
 import { Navbar, Container, Nav } from 'react-bootstrap';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 
-export default function Topbar({ setAdminMode }) {
-  const location = useLocation();
-  console.log(location.pathname);
-
+export default function Topbar() {
   return (
     <Navbar bg="light" expand="lg">
       <Container>

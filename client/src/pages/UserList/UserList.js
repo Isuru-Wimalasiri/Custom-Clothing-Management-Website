@@ -3,9 +3,22 @@ import { DataGrid } from '@material-ui/data-grid';
 import { MdDelete } from 'react-icons/md';
 //import { userRows } from '../../dummyData';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { userRequest } from '../../requestMethods';
 
 export default function UserList() {
+  useEffect(() => {
+    const getAllUserDetails = async () => {
+      try {
+        const res = await userRequest('/users');
+        console.log(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getAllUserDetails();
+  }, []);
+
   const [data, setData] = useState([]);
 
   const handleDelete = (id) => {

@@ -40,7 +40,7 @@ function NavBar() {
               </NavLink>
             </Nav.Link>
             <Nav.Link>
-              <NavLink className="navComponents" to="/design">
+              <NavLink className="navComponents" to="/owndesign">
                 Own Design
               </NavLink>
             </Nav.Link>

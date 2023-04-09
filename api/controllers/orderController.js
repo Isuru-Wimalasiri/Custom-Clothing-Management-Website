@@ -1,4 +1,5 @@
 import Order from '../models/Order.js';
+import mongoose from 'mongoose';
 
 //CREATE
 export const createOrder = async (req, res, next) => {
@@ -64,14 +65,13 @@ export const getIncome = async (req, res, next) => {
   const date = new Date();
   const lastMonth = new Date(date.setMonth(date.getMonth() - 1));
   const previousMonth = new Date(new Date().setMonth(lastMonth.getMonth() - 1));
-
   try {
     const income = await Order.aggregate([
       {
         $match: {
           createdAt: { $gte: previousMonth },
           ...(productId && {
-            products: { $elemMatch: { productId } },
+            'products.product': mongoose.Order.ObjectId(productId),
           }),
         },
       },
@@ -88,8 +88,9 @@ export const getIncome = async (req, res, next) => {
         },
       },
     ]);
+    console.log(income);
     res.status(200).json(income);
   } catch (err) {
-    res.status(500).json(err);
+    next(err);
   }
 };

@@ -41,6 +41,10 @@ const productSchema = new mongoose.Schema({
     type: String,
     required: false,
   },
+  inStock: {
+    type: Boolean,
+    required: true,
+  },
 });
 
 export default mongoose.model('Product', productSchema);

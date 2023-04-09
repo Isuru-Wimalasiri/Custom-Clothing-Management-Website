@@ -58,8 +58,6 @@ function Signup() {
     },
   });
 
-  console.log(formik.touched.firstName);
-
   return (
     <div className="container d-flex justify-content-center">
       <div className="row signup">
