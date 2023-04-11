@@ -22,6 +22,7 @@ export default function AdminSingleProduct() {
   );
 
   const [productSex, setProductSex] = useState(product);
+  const [productInStock, setProductInStock] = useState(product.inStock);
   const allTypeMeasurements = [
     'Bust',
     'Waist',
@@ -209,7 +210,15 @@ export default function AdminSingleProduct() {
             </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label htmlFor="proInStock">In Stock</Form.Label>
-              <Form.Control className="" as="select" name="isStock">
+              <Form.Control
+                className=""
+                as="select"
+                defaultValue={product.inStock}
+                onChange={(e) => {
+                  setProductInStock(e.target.value);
+                }}
+                name="isStock"
+              >
                 <option value="true">Yes</option>
                 <option value="false">No</option>
               </Form.Control>

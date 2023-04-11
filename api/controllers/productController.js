@@ -1,11 +1,16 @@
 //import products from '../../client/src/data/productsData.js';
 import Product from '../models/Product.js';
+import multer from 'multer';
 
 //CREATE
 export const createProduct = async (req, res, next) => {
-  console.log(req.body);
   const categoryId = req.params.categoryId;
-  const newProduct = new Product({ ...req.body, category: categoryId });
+  const imageData = req.file.path;
+  const newProduct = new Product({
+    ...req.body,
+    category: categoryId,
+    image: imageData,
+  });
 
   try {
     const savedProduct = await newProduct.save();
@@ -82,3 +87,26 @@ export const diffCategories = async (req, res, next) => {
     next(err);
   }
 };
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'uploads');
+  },
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + path.extname(file.originalname));
+  },
+});
+
+export const upload = multer({
+  storage: storage,
+  fileFilter: (req, res, cb) => {
+    const fileTypes = /jpeg|jpg|png|gif/;
+    const mimeType = fileTypes.test(file.mimetype);
+    const extname = fileTypes.test(path.extname(file.originalname));
+
+    if (mimeType && extname) {
+      return cb(null, true);
+    }
+    cb('Give proper file format to upload');
+  },
+});

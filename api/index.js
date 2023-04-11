@@ -10,6 +10,7 @@ import cartRoute from './routes/cartRoute.js';
 import orderRoute from './routes/orderRoute.js';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
+import multer from 'multer';
 
 dotenv.config();
 const app = express();
@@ -29,6 +30,8 @@ app.use(cookieParser());
 
 app.use(cors());
 app.use(express.json());
+
+app.use('./uploads', express.static('./uploads'));
 
 app.use('/api/auth', authRoute);
 app.use('/api/users', userRoute);

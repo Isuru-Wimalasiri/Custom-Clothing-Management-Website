@@ -2,3 +2,48 @@
   margin-top: 30px;
   margin-bottom: 30px;
 }
+
+.ownDesignForm {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.ownDesignInput {
+  width: 300px;
+}
+
+.ownDesignImgUpload {
+  width: 600px;
+}
+
+.ownDesignLine {
+  width: 100%;
+  margin-bottom: 20px;
+  border: 2px solid black;
+}
+
+.ownDesignNote {
+  width: 100%;
+  padding-bottom: 30px;
+}
+.ownBtns {
+  width: 50%;
+  padding-left: 16px;
+}
+.insertOwnBtn {
+  width: 388px;
+  height: 40px;
+  border-radius: 10px;
+  box-shadow: 5px 7px 17px -2px rgba(0, 0, 0, 0.45);
+  -webkit-box-shadow: 5px 7px 17px -2px rgba(0, 0, 0, 0.45);
+  -moz-box-shadow: 5px 7px 17px -2px rgba(0, 0, 0, 0.45);
+}
+
+.materialDetails {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}

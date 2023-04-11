@@ -24,7 +24,6 @@ const FabricModal = ({
     e.preventDefault();
     if (selectedOption) {
       setDetails((prev) => ({
-        ...prev,
         fabric: selectedOption,
       }));
 

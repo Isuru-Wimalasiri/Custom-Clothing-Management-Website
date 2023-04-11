@@ -4,6 +4,12 @@ import {
   getProductStart,
   getProductSuccess,
   getProductFailure,
+  updateProductFailure,
+  updateProductStart,
+  updateProductSuccess,
+  addProductFailure,
+  addProductStart,
+  addProductSuccess,
 } from './productSlice';
 import Cookies from 'js-cookie';
 
@@ -33,6 +39,27 @@ export const deleteProduct = async (dispatch, id) => {
     const res = await userRequest.delete(`/products/${id}`);
     console.log(res);
     dispatch(getProductSuccess(id));
+  } catch (err) {
+    dispatch(getProductFailure());
+  }
+};
+
+export const updateProduct = async (dispatch, id, product) => {
+  dispatch(updateProductStart());
+  try {
+    //const res = await userRequest.delete(`/products/${id}`);
+
+    dispatch(updateProductSuccess({ id, product }));
+  } catch (err) {
+    dispatch(updateProductFailure());
+  }
+};
+
+export const addProduct = async (dispatch, product) => {
+  dispatch(addProductStart());
+  try {
+    const res = await userRequest.post(`/products/`, { product });
+    dispatch(getProductSuccess(res.data));
   } catch (err) {
     dispatch(getProductFailure());
   }

@@ -24,7 +24,7 @@ const ColorModal = ({ setDetails, fabrics, onHide, show, fabId }) => {
 
   const printColors = () => {
     const colors = [];
-    for (let i = 0; i < fabrics.length; i++) {
+    for (let i = 0; i < fabrics?.length; i++) {
       let element = fabrics[i];
 
       if (fabId === fabrics[i]._id) {
