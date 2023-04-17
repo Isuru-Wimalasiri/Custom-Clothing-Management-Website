@@ -10,18 +10,18 @@ const productSchema = new mongoose.Schema({
     ref: 'Category',
     required: true,
   },
-  subCategory: {
-    type: String,
+  subCategories: {
+    type: [String],
     required: false,
   },
   gender: {
     type: String,
     required: true,
   },
-  mesurements: [{ type: String, required: true }],
+  mesurements: [{ type: String, required: false }],
   description: {
     type: String,
-    required: true,
+    required: false,
   },
   price: {
     type: Number,
@@ -43,7 +43,7 @@ const productSchema = new mongoose.Schema({
   },
   inStock: {
     type: Boolean,
-    required: true,
+    default: true,
   },
 });
 

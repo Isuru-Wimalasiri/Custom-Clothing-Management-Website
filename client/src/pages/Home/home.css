@@ -1,3 +1,6 @@
+.mainPage {
+  position: relative;
+}
 .banner {
   height: calc(100vh - 57px);
   width: 100%;
@@ -12,7 +15,25 @@
   top: -30%;
   object-fit: cover;
 }
-
+.mainBannerDetails {
+  position: absolute;
+  left: 150px;
+  top: 150px;
+  color: white;
+  letter-spacing: 3px;
+}
+.bannerBtn {
+  display: flex;
+  width: 45%;
+  justify-content: space-between;
+  padding-top: 10px;
+}
+.bannerBtn Button {
+  background-color: #eee;
+  color: black;
+  border: none;
+  border-radius: 10px;
+}
 .mainProducts {
   display: flex;
   flex-wrap: wrap;

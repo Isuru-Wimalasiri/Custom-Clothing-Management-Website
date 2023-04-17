@@ -1,10 +1,15 @@
 import Category from '../models/Category.js';
-
+import multer from 'multer';
+import path from 'path';
 //CREATE
 export const createCategory = async (req, res, next) => {
   try {
-    console.log(req.body);
-    const newCategory = new Category(req.body);
+    const { path } = req.file;
+    const category = {
+      name: req.body.name,
+      image: path,
+    };
+    const newCategory = new Category(category);
     const savedCategory = await newCategory.save();
     res.status(200).json(savedCategory);
   } catch (err) {
@@ -58,3 +63,14 @@ export const getCategories = async (req, res, next) => {
     next(err);
   }
 };
+
+const storage = multer.diskStorage({
+  destination(req, file, cb) {
+    cb(null, './../uploads');
+  },
+  filename(req, file, cb) {
+    cb(null, Date.now() + path.extname(file.originalname));
+  },
+});
+
+export const upload = multer({ storage: storage });

@@ -7,6 +7,7 @@ function Product({ category, url, id }) {
   const handleClick = () => {
     navigate(`/productList/${id}`);
   };
+  console.log(url);
 
   return (
     <button className="mainCatButton" onClick={handleClick}>
@@ -15,7 +16,7 @@ function Product({ category, url, id }) {
           <img src={url} alt="productImage" />
         </div>
         <div>
-          <h3 className="cardName">{category.toUpperCase() + 'S'}</h3>
+          <h3 className="cardName">{category.toUpperCase()}</h3>
         </div>
       </div>
     </button>

@@ -1,40 +1,35 @@
 .newProduct {
-  flex: 4;
-  margin-left: 100px;
+  position: absolute;
+  top: 80px;
+  left: 200px;
+  width: calc(100vw - 220px);
 }
 
-.addProductForm {
-  margin-top: 10px;
-}
-
-.addProductItem {
-  width: 250px;
+.newProductForm {
   display: flex;
-  flex-direction: column;
-  margin-bottom: 10px;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
-.addProductItem > label {
-  color: gray;
-  font-weight: 600;
-  margin-bottom: 10px;
+.newProductInput {
+  width: 50%;
 }
 
-.addProductItem > input {
-  padding: 10px;
+.newProductInputField {
+  width: 388px;
 }
 
-.addProductItem > select {
-  padding: 10px;
+.newProductInputDescription {
+  height: 400px;
 }
 
-.addProductButton {
-  margin-top: 10px;
-  padding: 7px 10px;
-  border: none;
-  border-radius: 10px;
-  background-color: darkblue;
-  color: white;
-  font-weight: 600;
-  cursor: pointer;
+.submitBtn {
+  width: 30%;
+}
+
+.newProductSubmitBtn {
+  width: 50%;
+  display: flex;
+  justify-content: right;
+  align-items: center;
 }

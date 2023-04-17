@@ -129,12 +129,11 @@ export default function AdminSingleProduct() {
     });
   };
 
-  console.log(product);
   return (
     <div className="singleProduct">
       <div className="singleProductTitleContainer">
         <h1 className="singleProductTitle">Product</h1>
-        <Link to="/newproduct">
+        <Link to="/admin/newproduct">
           <button className="singleProductAddButton">Create</button>
         </Link>
       </div>

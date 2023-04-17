@@ -242,7 +242,7 @@ const OwnDesign = () => {
               ))}
 
               <Button type="submit" className="submitBtn" disabled={isDisabled}>
-                CREATE AN ACCOUNT
+                Place Order
               </Button>
             </Form>
           </div>

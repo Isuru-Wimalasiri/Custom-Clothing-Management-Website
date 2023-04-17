@@ -15,12 +15,7 @@ const router = express.Router();
 router.get('/find/:id', getProduct);
 router.get('/', getProducts);
 router.get('/category', diffCategories);
-router.post(
-  '/:categoryId',
-  upload.array('photos', 2),
-  verifyAdmin,
-  createProduct
-);
+router.post('/:categoryId', verifyAdmin, upload.single('image'), createProduct);
 router.put('/id', verifyAdmin, updateProduct);
 router.delete('/:id', verifyAdmin, deleteProduct);
 

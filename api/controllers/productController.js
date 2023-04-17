@@ -1,23 +1,32 @@
 //import products from '../../client/src/data/productsData.js';
 import Product from '../models/Product.js';
 import multer from 'multer';
+import path from 'path';
 
 //CREATE
 export const createProduct = async (req, res, next) => {
   const categoryId = req.params.categoryId;
-  const imageData = req.file.path;
+  const imageData = req.body.image;
+  const { filename } = req.file;
+  const { mesurements } = req.body;
+  const { subCategories } = req.body;
+  const measurementData = mesurements.split(',');
+  const subCatData = subCategories.split(',');
+
   const newProduct = new Product({
     ...req.body,
     category: categoryId,
-    image: imageData,
+    image: filename,
+    mesurements: measurementData,
+    subCategories: subCatData,
   });
-
   try {
     const savedProduct = await newProduct.save();
     res.status(200).json(savedProduct);
   } catch (err) {
     next(err);
   }
+  console.log(req.body);
 };
 
 //UPDATE
@@ -89,24 +98,12 @@ export const diffCategories = async (req, res, next) => {
 };
 
 const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, 'uploads');
+  destination(req, file, cb) {
+    cb(null, './../uploads');
   },
-  filename: (req, file, cb) => {
+  filename(req, file, cb) {
     cb(null, Date.now() + path.extname(file.originalname));
   },
 });
 
-export const upload = multer({
-  storage: storage,
-  fileFilter: (req, res, cb) => {
-    const fileTypes = /jpeg|jpg|png|gif/;
-    const mimeType = fileTypes.test(file.mimetype);
-    const extname = fileTypes.test(path.extname(file.originalname));
-
-    if (mimeType && extname) {
-      return cb(null, true);
-    }
-    cb('Give proper file format to upload');
-  },
-});
+export const upload = multer({ storage: storage });

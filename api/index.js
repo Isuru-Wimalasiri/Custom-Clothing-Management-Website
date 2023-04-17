@@ -10,6 +10,7 @@ import cartRoute from './routes/cartRoute.js';
 import orderRoute from './routes/orderRoute.js';
 import cookieParser from 'cookie-parser';
 import cors from 'cors';
+import path from 'path';
 import multer from 'multer';
 
 dotenv.config();
@@ -30,8 +31,8 @@ app.use(cookieParser());
 
 app.use(cors());
 app.use(express.json());
-
-app.use('./uploads', express.static('./uploads'));
+const dirname = path.resolve();
+app.use('/uploads', express.static(path.join(dirname, '/uploads')));
 
 app.use('/api/auth', authRoute);
 app.use('/api/users', userRoute);

@@ -22,3 +22,11 @@ export const userRequest = axios.create({
   baseURL: BASE_URL,
   headers: { Authorization: `Bearer ${TOKEN}` },
 });
+
+export const userFormRequest = axios.create({
+  baseURL: BASE_URL,
+  headers: {
+    Authorization: `Bearer ${TOKEN}`,
+    'Content-Type': 'multipart/form-data',
+  },
+});
